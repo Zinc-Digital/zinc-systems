@@ -1,0 +1,28 @@
+// Block styles for the editor preview (main.css isn't loaded there, and its resets would affect the editor UI)
+@import "core/settings.scss";
+@import "core/tools";
+
+$sm: 768px;
+$md: 1024px;
+$lg: 1100px;
+
+@import "components/c.buttons";
+@import "components/c.section-head";
+@import "components/blocks/b.hero";
+@import "components/blocks/b.feature-accordion";
+@import "components/blocks/b.feature-showcase";
+@import "components/blocks/b.stats";
+@import "components/blocks/b.case-studies";
+@import "components/blocks/b.insights";
+@import "components/blocks/b.link-cards";
+
+// Utilities the blocks use (from core/utilities, which isn't loaded here)
+.u-accent {
+  color: color(mint);
+  font: inherit;
+  line-height: inherit;
+}
+
+.u-sr-only {
+  @include sr-only();
+}

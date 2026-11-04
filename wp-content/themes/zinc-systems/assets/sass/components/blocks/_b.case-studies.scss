@@ -1,0 +1,240 @@
+// Case studies block (slides cross-fade via assets/js/blocks/carousel.js)
+.b-case-studies {
+  margin: 110px 0;
+
+  &__inner {
+    @include block-width(1096px);
+    display: grid;
+    grid-template-columns: minmax(0, 541fr) minmax(0, 540fr);
+    gap: 15px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    min-height: 689px;
+    padding: 30px 40px;
+    border-radius: 20px;
+    background-color: color(grey);
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 39px;
+  }
+
+  // Slides share one grid cell so the card keeps the tallest one's height
+  &__slides {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    flex: 1;
+  }
+
+  &__slide {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease, visibility .5s;
+
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__story {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    height: 40px;
+
+    img {
+      width: auto;
+      max-width: 120px;
+      height: 20px;
+      object-fit: contain;
+      object-position: left center;
+      opacity: 0.3;
+    }
+  }
+
+  &__quote {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    p {
+      margin: 0;
+      font-family: $font-gravita;
+      font-weight: $font-500;
+      font-size: rem(20);
+      line-height: 30px;
+      color: color(ink);
+    }
+  }
+
+  &__author {
+    font-family: $font-gravita;
+    font-weight: $font-400;
+    font-size: rem(12);
+    line-height: normal;
+    letter-spacing: 0.05em;
+    color: color(ink, muted);
+  }
+
+  &__results {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    padding-bottom: 15px;
+  }
+
+  &__stats {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 248px;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__stat-value {
+    font-family: $font-gravita;
+    font-weight: $font-200;
+    font-size: rem(80);
+    line-height: 60px;
+    color: color(teal);
+    white-space: nowrap;
+    // the web font sits its figures lower in the line than the design's; lift them to match
+    position: relative;
+    top: -0.188em;
+  }
+
+  &__stat-label {
+    font-family: $font-gravita;
+    font-weight: $font-300;
+    font-size: rem(12);
+    line-height: 20px;
+    color: color(ink, soft);
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px 30px;
+  }
+
+  &__media {
+    position: relative;
+    min-height: 689px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: color(teal, dark);
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 76% 100%;
+    opacity: 0;
+    transition: opacity .6s ease;
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: $md - 1px) {
+  .b-case-studies {
+    margin: 100px 0;
+
+    &__inner {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    &__card {
+      min-height: 0;
+    }
+
+    &__media {
+      order: -1;
+      min-height: 0;
+      aspect-ratio: 16 / 10;
+    }
+  }
+}
+
+@media (max-width: $sm - 1px) {
+  .b-case-studies {
+    margin: 64px 0;
+
+    &__card {
+      gap: 30px;
+      padding: 24px;
+    }
+
+    &__quote p {
+      font-size: rem(18);
+      line-height: 27px;
+    }
+
+    &__stats {
+      gap: 20px;
+    }
+
+    &__stat {
+      width: auto;
+      flex: 1;
+    }
+
+    &__stat-value {
+      font-size: rem(56);
+      line-height: 48px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .b-case-studies {
+    &__slide,
+    &__image {
+      transition: none;
+    }
+  }
+}

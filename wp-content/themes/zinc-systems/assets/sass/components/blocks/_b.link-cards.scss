@@ -1,0 +1,170 @@
+// Link cards block: a joined row of cards; the hovered or focused one lifts out in teal
+.b-link-cards {
+  @include block-width(1240px);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 110px;
+  margin-bottom: 82px;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    border: 1px solid color(ink, line);
+    border-radius: 20px;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    margin: 0;
+    list-style: none;
+
+    & + & {
+      border-left: 1px solid color(ink, line);
+    }
+  }
+
+  &__card {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    width: 100%;
+    min-height: 175px;
+    padding: 35px 30px;
+    color: color(ink);
+    text-decoration: none;
+
+    &:focus-visible {
+      outline: 2px solid color(teal, dark);
+      outline-offset: 3px;
+    }
+  }
+
+  // Teal panel shown on hover; covers the dividing borders
+  &__bg {
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: color(teal);
+    box-shadow: 0 0 25px rgba(8, 127, 140, 0.5);
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+
+  &__pattern {
+    position: absolute;
+    top: 35.7%;
+    left: 59.42%;
+    width: 48.4%;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 1;
+    opacity: 0.15;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-family: $font-gravita;
+    font-weight: $font-500;
+    font-size: rem(18);
+    line-height: 22px;
+    color: inherit;
+
+    .c-icon {
+      margin-right: 5px;
+      color: color(teal);
+      transition: transform .3s ease, color .3s ease;
+    }
+  }
+
+  &__text {
+    max-width: 196px;
+    min-height: 54px;
+    font-family: $font-gravita;
+    font-weight: $font-300;
+    font-size: rem(14);
+    line-height: 20px;
+    color: color(ink, soft);
+    transition: color .3s ease;
+  }
+
+  a.b-link-cards__card:hover,
+  a.b-link-cards__card:focus-visible {
+    z-index: 1;
+    color: color(white);
+
+    .b-link-cards__bg {
+      opacity: 1;
+    }
+
+    .b-link-cards__text {
+      color: color(white);
+    }
+
+    .c-icon {
+      color: color(white);
+      transform: rotate(45deg);
+    }
+  }
+}
+
+// Two columns, then one: separate cards
+@media (max-width: $md - 1px) {
+  .b-link-cards {
+    margin-top: 100px;
+
+    &__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+      border: 0;
+    }
+
+    &__item,
+    &__item + &__item {
+      border: 1px solid color(ink, line);
+      border-radius: 20px;
+    }
+  }
+}
+
+@media (max-width: $sm - 1px) {
+  .b-link-cards {
+    margin-top: 64px;
+    margin-bottom: 64px;
+
+    &__list {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    &__card {
+      min-height: 0;
+      gap: 15px;
+      padding: 28px 24px;
+    }
+
+    &__text {
+      max-width: none;
+      min-height: 0;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .b-link-cards {
+    &__bg,
+    &__title .c-icon,
+    &__text {
+      transition: none;
+    }
+  }
+}

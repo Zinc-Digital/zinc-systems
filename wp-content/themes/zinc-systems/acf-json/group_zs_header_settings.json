@@ -1,0 +1,876 @@
+{
+    "key": "group_zs_header_settings",
+    "title": "Header Settings",
+    "fields": [
+        {
+            "key": "field_zs_hdr_tab_brand",
+            "label": "Branding",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_zs_hdr_logo",
+            "label": "Header logo",
+            "name": "header_logo",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Falls back to the logo set on the main Theme Settings page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_zs_font_stylesheet",
+            "label": "Font stylesheet URL",
+            "name": "font_stylesheet_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Stylesheet that loads the brand fonts (Gravita HUM and Urbane), e.g. an Adobe Fonts kit URL such as https://use.typekit.net/xxxxxxx.css",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_zs_hdr_tab_nav",
+            "label": "Navigation",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_zs_hdr_nav",
+            "label": "Navigation items",
+            "name": "header_nav",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_zs_hdr_nav_label",
+            "button_label": "Add navigation item",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_zs_hdr_nav_label",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_zs_hdr_nav"
+                },
+                {
+                    "key": "field_zs_hdr_nav_link",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Optional for items with a mega menu.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_zs_hdr_nav"
+                },
+                {
+                    "key": "field_zs_hdr_nav_has_mega",
+                    "label": "Mega menu",
+                    "name": "has_mega_menu",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_zs_hdr_nav"
+                },
+                {
+                    "key": "field_zs_hdr_nav_mega",
+                    "label": "Mega menu",
+                    "name": "mega_menu",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_zs_hdr_nav_has_mega",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "parent_repeater": "field_zs_hdr_nav",
+                    "sub_fields": [
+                        {
+                            "key": "field_zs_hdr_mega_columns",
+                            "label": "Link columns",
+                            "name": "columns",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Up to two columns. Add a description to links for the detailed style, or an icon for the icon style.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "pagination": 0,
+                            "min": 0,
+                            "max": 2,
+                            "collapsed": "field_zs_hdr_mega_col_heading",
+                            "button_label": "Add column",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_zs_hdr_mega_col_heading",
+                                    "label": "Heading",
+                                    "name": "heading",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Shown in small capitals, e.g. \"By capability\".",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_zs_hdr_mega_columns"
+                                },
+                                {
+                                    "key": "field_zs_hdr_mega_col_footer_link",
+                                    "label": "Footer link",
+                                    "name": "footer_link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "Optional, e.g. \"View platform\".",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "parent_repeater": "field_zs_hdr_mega_columns"
+                                },
+                                {
+                                    "key": "field_zs_hdr_mega_col_items",
+                                    "label": "Links",
+                                    "name": "items",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "field_zs_hdr_mega_item_title",
+                                    "button_label": "Add link",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_zs_hdr_mega_columns",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_zs_hdr_mega_item_icon",
+                                            "label": "Icon",
+                                            "name": "icon",
+                                            "aria-label": "",
+                                            "type": "image",
+                                            "instructions": "Optional. Small icon shown before the title (15px).",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "20",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "array",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "svg,png",
+                                            "preview_size": "medium",
+                                            "parent_repeater": "field_zs_hdr_mega_col_items"
+                                        },
+                                        {
+                                            "key": "field_zs_hdr_mega_item_title",
+                                            "label": "Title",
+                                            "name": "title",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "30",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "parent_repeater": "field_zs_hdr_mega_col_items"
+                                        },
+                                        {
+                                            "key": "field_zs_hdr_mega_item_desc",
+                                            "label": "Description",
+                                            "name": "description",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "Optional short line shown under the title.",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "50",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "rows": 2,
+                                            "placeholder": "",
+                                            "new_lines": "",
+                                            "parent_repeater": "field_zs_hdr_mega_col_items"
+                                        },
+                                        {
+                                            "key": "field_zs_hdr_mega_item_link",
+                                            "label": "Link",
+                                            "name": "link",
+                                            "aria-label": "",
+                                            "type": "link",
+                                            "instructions": "",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "array",
+                                            "parent_repeater": "field_zs_hdr_mega_col_items"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_zs_hdr_mega_show_feature",
+                            "label": "Show feature card",
+                            "name": "show_feature",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_zs_hdr_mega_feature",
+                            "label": "Feature card",
+                            "name": "feature",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_zs_hdr_mega_show_feature",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_zs_hdr_mega_feat_image",
+                                    "label": "Image",
+                                    "name": "image",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "preview_size": "medium"
+                                },
+                                {
+                                    "key": "field_zs_hdr_mega_feat_caption",
+                                    "label": "Image caption",
+                                    "name": "caption",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "e.g. \"Platform tour · 3 min\"",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_zs_hdr_mega_feat_play",
+                                    "label": "Show play icon",
+                                    "name": "show_play",
+                                    "aria-label": "",
+                                    "type": "true_false",
+                                    "instructions": "Shows a play button on the image when there's no video (with a video it always shows).",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 1,
+                                    "ui": 1,
+                                    "ui_on_text": "",
+                                    "ui_off_text": ""
+                                },
+                                {
+                                    "key": "field_zs_hdr_mega_feat_video_type",
+                                    "label": "Video",
+                                    "name": "video_type",
+                                    "aria-label": "",
+                                    "type": "radio",
+                                    "instructions": "Plays in a pop-up when the image is clicked (the play button shows automatically).",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "none": "None",
+                                        "youtube": "YouTube",
+                                        "vimeo": "Vimeo",
+                                        "file": "Upload"
+                                    },
+                                    "default_value": "none",
+                                    "return_format": "value",
+                                    "layout": "horizontal",
+                                    "allow_null": 0,
+                                    "other_choice": 0,
+                                    "save_other_choice": 0
+                                },
+                                {
+                                    "key": "field_zs_hdr_mega_feat_video_url",
+                                    "label": "Video link",
+                                    "name": "video_url",
+                                    "aria-label": "",
+                                    "type": "url",
+                                    "instructions": "Paste the video's page or share link, e.g. https://www.youtube.com/watch?v=… or https://vimeo.com/…",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_zs_hdr_mega_feat_video_type",
+                                                "operator": "==",
+                                                "value": "youtube"
+                                            }
+                                        ],
+                                        [
+                                            {
+                                                "field": "field_zs_hdr_mega_feat_video_type",
+                                                "operator": "==",
+                                                "value": "vimeo"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_zs_hdr_mega_feat_video_file",
+                                    "label": "Video file",
+                                    "name": "video_file",
+                                    "aria-label": "",
+                                    "type": "file",
+                                    "instructions": "MP4 or WebM.",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_zs_hdr_mega_feat_video_type",
+                                                "operator": "==",
+                                                "value": "file"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_size": "",
+                                    "max_size": "",
+                                    "mime_types": "mp4,webm"
+                                },
+                                {
+                                    "key": "field_zs_hdr_mega_feat_title",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "A trailing full stop is shown in the accent colour.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_zs_hdr_mega_feat_text",
+                                    "label": "Text",
+                                    "name": "text",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "rows": 2,
+                                    "placeholder": "",
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_zs_hdr_mega_feat_link",
+                                    "label": "Link",
+                                    "name": "link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "Used for the text link, e.g. \"Watch the tour\", and for the image when there's no video.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_zs_hdr_mega_show_bar",
+                            "label": "Show bottom bar",
+                            "name": "show_bottom_bar",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_zs_hdr_mega_bar",
+                            "label": "Bottom bar",
+                            "name": "bottom_bar",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_zs_hdr_mega_show_bar",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_zs_hdr_mega_bar_label",
+                                    "label": "Label",
+                                    "name": "label",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "e.g. \"Works alongside every module\"",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_zs_hdr_mega_bar_links",
+                                    "label": "Links",
+                                    "name": "links",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "table",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Add link",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_zs_hdr_mega_bar_link",
+                                            "label": "Link",
+                                            "name": "link",
+                                            "aria-label": "",
+                                            "type": "link",
+                                            "instructions": "",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "array",
+                                            "parent_repeater": "field_zs_hdr_mega_bar_links"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_zs_hdr_mega_bg",
+                            "label": "Background graphic",
+                            "name": "background_image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "Optional decorative graphic shown faintly behind the menu.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "medium"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_zs_hdr_tab_actions",
+            "label": "Search & actions",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_zs_hdr_show_search",
+            "label": "Show search",
+            "name": "header_show_search",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_zs_hdr_search_placeholder",
+            "label": "Search placeholder",
+            "name": "header_search_placeholder",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zs_hdr_show_search",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Search",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_zs_hdr_button",
+            "label": "Button",
+            "name": "header_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "e.g. \"Book a demo\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_zs_hdr_region_label",
+            "label": "Language switcher label",
+            "name": "header_region_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Shown when the site is in its default language, e.g. \"UK\". Other languages show their code (FR, DE…). The language list is managed under Settings → GTranslate. Leave empty to hide the switcher.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-header-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1793805271
+}

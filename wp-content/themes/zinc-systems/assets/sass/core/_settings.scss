@@ -1,0 +1,38 @@
+//Fonts
+$global-font-size: 16px;
+$browser-context: 16;
+
+$primary_font: "museo-sans", sans-serif;
+
+// Brand fonts – loaded via the "Font stylesheet URL" under Theme Settings
+$font-gravita: "gravita-hum-variable", "gravita-hum", "Gravita HUM", "Helvetica Neue", Arial, sans-serif;
+// Urbane isn't in the Adobe kit yet, so fall back to Gravita rather than a system font
+$font-urbane: "urbane", "Urbane", "gravita-hum-variable", "gravita-hum", "Helvetica Neue", Arial, sans-serif;
+
+$font-100: 100;
+$font-200: 200;
+$font-300: 300;
+
+
+$font-400: 400;
+$font-500: 500;
+$font-600: 600;
+$font-700: 700;
+$font-800: 800;
+$font-900: 900;
+
+//Colours
+$colors: (
+  white: (base: #ffffff),
+  black: (base: #0E0E0E),
+  red:  (base: #D8162A),
+  ink: (base: #272727, muted: rgba(39, 39, 39, 0.5), soft: rgba(39, 39, 39, 0.75), line: rgba(39, 39, 39, 0.1)),
+  mint: (base: #36F1CD),
+  teal: (base: #087F8C, deep: #024047, dark: #00363C),
+  grey: (base: #F8F8F9)
+);
+
+// Color Function
+@function color($color, $tone: 'base') {
+  @return map-get(map-get($colors, $color), $tone);
+}

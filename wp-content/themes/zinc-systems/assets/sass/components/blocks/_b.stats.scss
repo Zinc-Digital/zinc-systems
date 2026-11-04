@@ -1,0 +1,114 @@
+// Stats block (numbers count up via assets/js/blocks/reveal.js)
+.b-stats {
+  position: relative;
+  overflow: hidden;
+  margin: 110px 0;
+  background-image: linear-gradient(-69.56deg, color(teal) 0%, color(teal, dark) 100%);
+
+  // Faint ring, curving in from the right
+  &__pattern {
+    position: absolute;
+    top: 30px;
+    left: calc(100% - 630px);
+    width: 1000px;
+    max-width: none;
+    height: 500px;
+    opacity: 0.05;
+    transform: rotate(-90deg);
+    pointer-events: none;
+  }
+
+  &__inner {
+    @include block-width(1240px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 90px 0;
+  }
+
+  .c-section-head__title {
+    color: color(white);
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 248px;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__value {
+    display: block;
+    font-family: $font-gravita;
+    font-weight: $font-100;
+    font-size: rem(150);
+    line-height: 120px;
+    color: color(mint);
+    white-space: nowrap;
+    // the web font sits its figures lower in the line than the design's; lift them to match
+    position: relative;
+    top: -0.188em;
+
+    span {
+      font: inherit;
+      color: inherit;
+    }
+  }
+
+  &__label {
+    font-family: $font-gravita;
+    font-weight: $font-300;
+    font-size: rem(16);
+    line-height: 20px;
+    color: color(white);
+  }
+}
+
+@media (max-width: $lg - 1px) {
+  .b-stats {
+    &__item {
+      min-width: 0;
+    }
+
+    &__value {
+      font-size: rem(104);
+      line-height: 96px;
+    }
+  }
+}
+
+@media (max-width: $sm - 1px) {
+  .b-stats {
+    margin: 64px 0;
+
+    &__pattern {
+      left: calc(100% - 400px);
+    }
+
+    &__inner {
+      gap: 40px;
+      padding: 64px 0;
+    }
+
+    &__list {
+      flex-direction: column;
+    }
+
+    &__value {
+      font-size: rem(80);
+      line-height: 76px;
+    }
+  }
+}

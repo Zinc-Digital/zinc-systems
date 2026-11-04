@@ -1,0 +1,87 @@
+.c-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 84px;
+  border: 2px solid transparent;
+  font-family: $font-gravita;
+  font-weight: $font-500;
+  font-size: rem(14);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
+
+  &:focus-visible {
+    outline: 2px solid color(teal);
+    outline-offset: 2px;
+  }
+
+  &--primary {
+    background-color: color(mint);
+    border-color: color(mint);
+    color: color(ink);
+
+    &:hover {
+      color: color(ink);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(54, 241, 205, 0.35);
+    }
+  }
+
+  // White outline, for dark backgrounds
+  &--ghost {
+    border-color: color(white);
+    color: color(white);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: color(white);
+    }
+  }
+
+  &--outline {
+    border-color: color(teal);
+    color: color(teal);
+
+    &:hover {
+      background-color: color(teal);
+      color: color(white);
+    }
+  }
+}
+
+// Small arrow link, e.g. "View platform ↗"
+.c-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-urbane;
+  font-weight: $font-500;
+  font-size: rem(12);
+  line-height: normal;
+  letter-spacing: 0.05em;
+  color: color(teal);
+
+  .c-icon {
+    flex-shrink: 0;
+    transition: transform .2s ease;
+  }
+
+  &:hover {
+    color: color(teal, deep);
+
+    .c-icon {
+      transform: translate(2px, -2px);
+    }
+  }
+}
+
+.c-icon {
+  display: block;
+  flex-shrink: 0;
+}

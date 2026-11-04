@@ -1,0 +1,350 @@
+// Feature showcase block: stacking cards (assets/js/blocks/stack.js); bars grow in via assets/js/blocks/reveal.js
+.b-feature-showcase {
+  --stack-top: calc(var(--site-header-height, 89px) + var(--wp-admin--admin-bar--height, 0px) + 23px);
+  @include block-width(1340px);
+  margin-top: 110px;
+  margin-bottom: 110px;
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    max-width: 795px;
+    margin: 0 auto 53px;
+    text-align: center;
+  }
+
+  &__text {
+    max-width: 757px;
+    margin: 0;
+    font-family: $font-gravita;
+    font-weight: $font-300;
+    font-size: rem(14);
+    line-height: 20px;
+    letter-spacing: 0.03em;
+    color: color(ink, soft);
+  }
+
+  // Each card pins under the header and the next slides up over it, then the stack scrolls away
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__card {
+    // stack.js lowers this for a card taller than the window, so it pins by its bottom edge
+    position: sticky;
+    top: var(--stack-top);
+    isolation: isolate;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    // 700px, or shorter on a short window so the whole card fits below the header while pinned
+    min-height: min(700px, calc(100vh - var(--stack-top) - 24px));
+    min-height: min(700px, calc(100svh - var(--stack-top) - 24px));
+    padding: 50px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: color(teal, dark);
+  }
+
+  // Image, darkened towards the text
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to left, rgba(30, 30, 30, 0) 52.537%, rgba(30, 30, 30, 0.5) 71.455%),
+        linear-gradient(116.07deg, rgba(0, 0, 0, 0.5) 6.143%, rgba(0, 0, 0, 0) 60.035%),
+        linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 22.873%);
+      mix-blend-mode: multiply;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: -56.81%;
+    left: -4.17%;
+    width: 121.07%;
+    max-width: none;
+    height: 161.1%;
+    object-fit: cover;
+  }
+
+  &__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    align-self: stretch;
+    width: 440px;
+  }
+
+  &__card-title {
+    max-width: 409px;
+    margin: 0;
+    font-family: $font-gravita;
+    font-weight: $font-500;
+    font-size: rem(45);
+    line-height: 60px;
+    color: #F0FAF8;
+    transition: none;
+  }
+
+  &__foot {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  &__card-text {
+    margin: 0;
+    font-family: $font-gravita;
+    font-weight: $font-300;
+    font-size: rem(14);
+    line-height: 20px;
+    color: #F0FAF8;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  // Floating product cards
+  &__widget {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 360px;
+    flex-shrink: 0;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  &__stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 64px;
+    border-radius: 5px;
+    background-color: color(white);
+  }
+
+  &__stat-value {
+    font-family: $font-urbane;
+    font-weight: $font-300;
+    font-size: rem(30);
+    line-height: normal;
+    color: color(teal);
+    white-space: nowrap;
+  }
+
+  &__stat-label {
+    max-width: 62px;
+    font-family: $font-urbane;
+    font-weight: $font-100;
+    font-size: rem(8);
+    line-height: normal;
+    letter-spacing: 0.03em;
+    color: color(ink);
+  }
+
+  &__chart {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 164px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: color(white);
+  }
+
+  &__chart-head {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__chart-title {
+    font-family: $font-urbane;
+    font-weight: $font-300;
+    font-size: rem(10);
+    line-height: normal;
+    color: color(ink);
+    white-space: nowrap;
+  }
+
+  &__chart-badge {
+    padding: 2px 5px 3px;
+    border-radius: 100px;
+    background-color: color(teal);
+    font-family: $font-urbane;
+    font-weight: $font-500;
+    font-size: rem(6);
+    line-height: normal;
+    letter-spacing: 0.02em;
+    color: color(white);
+    white-space: nowrap;
+  }
+
+  &__groups {
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    & + & {
+      margin-left: 12px;
+      padding-left: 12px;
+      border-left: 1px solid color(ink, line);
+    }
+  }
+
+  &__bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 78px;
+  }
+
+  &__bar {
+    width: 25px;
+    height: var(--h);
+    transform-origin: bottom;
+    transition: transform .8s cubic-bezier(.2, .7, .2, 1) var(--d, 0s);
+  }
+
+  &__group-label {
+    width: 60px;
+    font-family: $font-urbane;
+    font-weight: $font-300;
+    font-size: rem(8);
+    line-height: normal;
+    text-align: center;
+    color: color(ink, muted);
+  }
+
+  // Waiting to scroll into view
+  &__card.is-reveal-ready:not(.is-revealed) &__bar {
+    transform: scaleY(0);
+  }
+}
+
+@media (max-width: $lg - 1px) {
+  .b-feature-showcase {
+    &__card {
+      padding: 40px;
+    }
+
+    &__widget {
+      width: 320px;
+    }
+  }
+}
+
+@media (max-width: $md - 1px) {
+  .b-feature-showcase {
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    &__card {
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    &__copy {
+      width: auto;
+      max-width: 420px;
+      gap: 200px;
+    }
+
+    &__widget {
+      width: 360px;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: $sm - 1px) {
+  .b-feature-showcase {
+    margin-top: 64px;
+    margin-bottom: 64px;
+
+    &__cards {
+      gap: 16px;
+    }
+
+    &__intro {
+      margin-bottom: 40px;
+    }
+
+    &__card {
+      padding: 30px 24px;
+    }
+
+    &__image {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-position: 60% 50%;
+    }
+
+    &__card-title {
+      font-size: rem(32);
+      line-height: 40px;
+    }
+
+    &__copy {
+      gap: 100px;
+    }
+
+    &__widget {
+      width: 100%;
+    }
+
+    &__chart {
+      padding: 15px;
+    }
+
+    &__bars {
+      gap: 3px;
+    }
+
+    &__bar {
+      width: 18px;
+    }
+
+    &__group-label {
+      width: auto;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .b-feature-showcase__bar {
+    transition: none;
+  }
+}

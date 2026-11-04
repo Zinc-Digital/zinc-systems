@@ -1,0 +1,117 @@
+// Block heading: tag pill above a large title (template-parts/blocks/partials/section-head.php)
+.c-section-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+
+  &__title {
+    margin: 0;
+    font-family: $font-gravita;
+    font-weight: $font-500;
+    font-size: rem(45);
+    line-height: 60px;
+    letter-spacing: 0;
+    color: color(ink);
+  }
+
+  &--center {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+// Small outlined label with a dot, e.g. "• Platform"
+.c-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 12px 20px 13px;
+  border: 1px solid color(teal);
+  border-radius: 100px;
+  font-family: $font-gravita;
+  font-weight: $font-500;
+  font-size: rem(12);
+  line-height: 10px;
+  letter-spacing: 0.02em;
+  color: color(teal);
+  white-space: nowrap;
+
+  &::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: currentColor;
+  }
+
+  // For dark backgrounds
+  &--light {
+    border-color: color(white);
+    color: color(white);
+  }
+}
+
+// Round previous / next buttons
+.c-arrows {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  &__btn {
+    display: grid;
+    place-items: center;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    border: 1px solid color(teal);
+    border-radius: 50%;
+    background: none;
+    color: color(teal);
+    cursor: pointer;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+
+    .c-icon {
+      transform: rotate(45deg);
+    }
+
+    &--prev .c-icon {
+      transform: rotate(-135deg);
+    }
+
+    &:hover:not(:disabled) {
+      background-color: color(teal);
+      color: color(white);
+    }
+
+    &:focus-visible {
+      outline: 2px solid color(teal);
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      border-color: #C1C1CB;
+      color: #C1C1CB;
+      cursor: default;
+    }
+  }
+}
+
+@media (max-width: $lg - 1px) {
+  .c-section-head__title {
+    font-size: rem(38);
+    line-height: 50px;
+  }
+}
+
+@media (max-width: $sm - 1px) {
+  .c-section-head {
+    gap: 20px;
+
+    &__title {
+      font-size: rem(32);
+      line-height: 40px;
+    }
+  }
+}

@@ -1,0 +1,1494 @@
+{
+    "key": "group_zs_block_hero",
+    "title": "Block: Hero",
+    "fields": [
+        {
+            "key": "field_zs_hero_tab_content",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_zs_hero_headline",
+            "label": "Headline",
+            "name": "headline",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Each line break starts a new line.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "One platform.\nEvery risk.",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_zs_hero_highlight",
+            "label": "Highlighted words",
+            "name": "headline_highlight",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Added after the headline with the animated mint gradient.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Covered.",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_zs_hero_text",
+            "label": "Text",
+            "name": "text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla.",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_zs_hero_primary",
+            "label": "Primary button",
+            "name": "primary_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_zs_hero_secondary",
+            "label": "Secondary button",
+            "name": "secondary_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_zs_hero_tab_chips",
+            "label": "Capability chips",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_zs_hero_chips",
+            "label": "Chips",
+            "name": "chips",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Positioned on the 1440px design and scaled with the window. On mobile they wrap above the product UI.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_zs_hero_chip_label",
+            "button_label": "Add chip",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_zs_hero_chip_label",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "34",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_zs_hero_chips"
+                },
+                {
+                    "key": "field_zs_hero_chip_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "svg,png",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_zs_hero_chips"
+                },
+                {
+                    "key": "field_zs_hero_chip_size",
+                    "label": "Size",
+                    "name": "size",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "sm": "Small",
+                        "lg": "Large",
+                        "xl": "Extra large"
+                    },
+                    "default_value": "lg",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_zs_hero_chips"
+                },
+                {
+                    "key": "field_zs_hero_chip_x",
+                    "label": "Left",
+                    "name": "x",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "Position on the 1440px design.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "17",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "min": "",
+                    "max": "",
+                    "step": "0.5",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "px",
+                    "parent_repeater": "field_zs_hero_chips"
+                },
+                {
+                    "key": "field_zs_hero_chip_y",
+                    "label": "Top",
+                    "name": "y",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "17",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "min": "",
+                    "max": "",
+                    "step": "0.5",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "px",
+                    "parent_repeater": "field_zs_hero_chips"
+                },
+                {
+                    "key": "field_zs_hero_chip_depth",
+                    "label": "Depth",
+                    "name": "depth",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "How far it drifts with the mouse.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "17",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 1,
+                    "min": "0.1",
+                    "max": "2",
+                    "step": "0.05",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_zs_hero_chips"
+                },
+                {
+                    "key": "field_zs_hero_chip_bob",
+                    "label": "Float duration",
+                    "name": "bob",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "17",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 6,
+                    "min": "1",
+                    "max": "",
+                    "step": "0.1",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "s",
+                    "parent_repeater": "field_zs_hero_chips"
+                },
+                {
+                    "key": "field_zs_hero_chip_delay",
+                    "label": "Float offset",
+                    "name": "delay",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "16",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "min": "",
+                    "max": "",
+                    "step": "0.1",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "s",
+                    "parent_repeater": "field_zs_hero_chips"
+                },
+                {
+                    "key": "field_zs_hero_chip_faint",
+                    "label": "Faint",
+                    "name": "faint",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Starts faded, comes up on scroll.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "16",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_zs_hero_chips"
+                }
+            ]
+        },
+        {
+            "key": "field_zs_hero_tab_ui",
+            "label": "Product UI",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_zs_hero_ui_type",
+            "label": "Product UI",
+            "name": "ui_type",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "The animated dashboard builds itself (counters, charts, cursor) when it arrives in the middle of the screen.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "dashboard": "Animated dashboard",
+                "image": "Image"
+            },
+            "default_value": "dashboard",
+            "return_format": "value",
+            "layout": "horizontal",
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_zs_hero_ui_image",
+            "label": "UI image",
+            "name": "ui_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Shown in the 885 \u00d7 591 frame.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zs_hero_ui_type",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_zs_hero_demo_show",
+            "label": "Show demo call to action",
+            "name": "demo_show",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Fades in over the product UI once it has finished animating.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_zs_hero_demo_title",
+            "label": "Title",
+            "name": "demo_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zs_hero_demo_show",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Book an interactive demo",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_zs_hero_demo_highlight",
+            "label": "Highlighted word",
+            "name": "demo_highlight",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Part of the title shown in mint.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zs_hero_demo_show",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "interactive",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_zs_hero_demo_note",
+            "label": "Note",
+            "name": "demo_note",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zs_hero_demo_show",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "See how Zinc runs every risk from one place",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_zs_hero_demo_primary",
+            "label": "Primary button",
+            "name": "demo_primary",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zs_hero_demo_show",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_zs_hero_demo_secondary",
+            "label": "Secondary button",
+            "name": "demo_secondary",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zs_hero_demo_show",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_zs_hero_tab_dash",
+            "label": "Dashboard",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_zs_hero_dashboard",
+            "label": "Dashboard",
+            "name": "dashboard",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "Content of the animated product dashboard. Shown when Product UI is set to Animated dashboard.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zs_hero_ui_type",
+                        "operator": "==",
+                        "value": "dashboard"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_zs_hero_dash_title",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Asset Dashboard",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_subtitle",
+                    "label": "Subtitle",
+                    "name": "subtitle",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Overview of asset inventory, checkouts, and utilisation metrics",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_location_label",
+                    "label": "Location filter label",
+                    "name": "location_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Select Location",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_location_value",
+                    "label": "Location filter value",
+                    "name": "location_value",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Select Location",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_range_label",
+                    "label": "Date filter label",
+                    "name": "range_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Date Range",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_range_value",
+                    "label": "Date filter value",
+                    "name": "range_value",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Last 12 months",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_info",
+                    "label": "Info line",
+                    "name": "info",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "75",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "When location is not selected \u2014 data is shown across all your subscribed locations.",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_export",
+                    "label": "Export button",
+                    "name": "export_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Export PDF",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_kpis",
+                    "label": "KPI cards",
+                    "name": "kpis",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Up to five cards in the top row. The numbers count up when the dashboard builds. Leave empty to use the example cards.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 5,
+                    "collapsed": "",
+                    "button_label": "Add card",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_zs_hero_dash_kpi_label",
+                            "label": "Label",
+                            "name": "label",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_zs_hero_dash_kpis"
+                        },
+                        {
+                            "key": "field_zs_hero_dash_kpi_value",
+                            "label": "Value",
+                            "name": "value",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "20",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "min": "0",
+                            "max": "",
+                            "step": "1",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_zs_hero_dash_kpis"
+                        },
+                        {
+                            "key": "field_zs_hero_dash_kpi_icon",
+                            "label": "Icon",
+                            "name": "icon",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "assets": "Assets (blue)",
+                                "checked_out": "Checked out (green)",
+                                "overdue": "Overdue (red)",
+                                "available": "Available (grey)",
+                                "returns": "Returns (light blue)",
+                                "deactivated": "Deactivated (amber)"
+                            },
+                            "default_value": "assets",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "parent_repeater": "field_zs_hero_dash_kpis"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_zs_hero_dash_wide_label",
+                    "label": "Wide card label",
+                    "name": "wide_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Deactivated Assets",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_wide_value",
+                    "label": "Wide card value",
+                    "name": "wide_value",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "min": "0",
+                    "max": "",
+                    "step": "1",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_wide_icon",
+                    "label": "Wide card icon",
+                    "name": "wide_icon",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "assets": "Assets (blue)",
+                        "checked_out": "Checked out (green)",
+                        "overdue": "Overdue (red)",
+                        "available": "Available (grey)",
+                        "returns": "Returns (light blue)",
+                        "deactivated": "Deactivated (amber)"
+                    },
+                    "default_value": "deactivated",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_donut_title",
+                    "label": "Donut chart title",
+                    "name": "donut_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Asset Status Breakdown",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_segments",
+                    "label": "Donut segments",
+                    "name": "segments",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Each segment's share of the ring comes from its amount. All segments appear in the legend. Leave empty to use the example data.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add segment",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_zs_hero_dash_seg_label",
+                            "label": "Label",
+                            "name": "label",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_zs_hero_dash_segments"
+                        },
+                        {
+                            "key": "field_zs_hero_dash_seg_value",
+                            "label": "Amount",
+                            "name": "value",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "min": "0",
+                            "max": "",
+                            "step": "0.1",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_zs_hero_dash_segments"
+                        },
+                        {
+                            "key": "field_zs_hero_dash_seg_colour",
+                            "label": "Colour",
+                            "name": "colour",
+                            "aria-label": "",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "#4CA5DA",
+                            "enable_opacity": 0,
+                            "return_format": "string",
+                            "parent_repeater": "field_zs_hero_dash_segments"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_zs_hero_dash_line_title",
+                    "label": "Line chart title",
+                    "name": "line_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Checkouts Over Time",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_tooltip_unit",
+                    "label": "Tooltip unit",
+                    "name": "tooltip_unit",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "The cursor points at the highest value, e.g. \"09 Feb \u00b7 3 checkouts\".",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "checkouts",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_points",
+                    "label": "Line chart points",
+                    "name": "points",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Plotted left to right; the axis scales to the values. Leave empty to use the example data.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add point",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_zs_hero_dash_point_label",
+                            "label": "Label",
+                            "name": "label",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "60",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_zs_hero_dash_points"
+                        },
+                        {
+                            "key": "field_zs_hero_dash_point_value",
+                            "label": "Value",
+                            "name": "value",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "40",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "min": "0",
+                            "max": "",
+                            "step": "0.1",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_zs_hero_dash_points"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_zs_hero_dash_lower_left",
+                    "label": "Lower left card title",
+                    "name": "lower_left_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Overdue by Location",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_lower_right",
+                    "label": "Lower right card title",
+                    "name": "lower_right_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Assets by Type / Category",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_side_add",
+                    "label": "Sidebar: add",
+                    "name": "side_add",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Add",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_side_search",
+                    "label": "Sidebar: search",
+                    "name": "side_search",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Search",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_side_assets",
+                    "label": "Sidebar: current section",
+                    "name": "side_assets",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Assets",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_side_profile",
+                    "label": "Sidebar: profile",
+                    "name": "side_profile",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "My Profile",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_zs_hero_dash_side_initials",
+                    "label": "Sidebar: initials",
+                    "name": "side_initials",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "MN",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_zs_hero_tab_bg",
+            "label": "Background",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_zs_hero_shapes",
+            "label": "Background shapes",
+            "name": "background_shapes",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Faint shapes that rise up behind the product UI (1440 \u00d7 496). Leave empty to use the default.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_zs_hero_tab_logos",
+            "label": "Trusted by",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_zs_hero_logos_label",
+            "label": "Label",
+            "name": "logos_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Trusted by",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_zs_hero_logos",
+            "label": "Logos",
+            "name": "logos",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Five sit evenly across the strip; with more than five they scroll past on a loop.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add logo",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_zs_hero_logo_image",
+                    "label": "Logo",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Fitted within 140 \u00d7 38 (never cropped), so trim any empty space around the logo before uploading.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_zs_hero_logos"
+                },
+                {
+                    "key": "field_zs_hero_logo_link",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Optional.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_zs_hero_logos"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1793797315
+}

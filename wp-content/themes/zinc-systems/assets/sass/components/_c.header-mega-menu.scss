@@ -1,0 +1,429 @@
+// Header mega menu
+.c-mega-menu {
+  &__main {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    padding: 30px 50px;
+    background-color: color(white);
+    overflow: hidden;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 35.08%;
+    left: 0.02%;
+    width: 44.84%;
+    height: 64.45%;
+    object-fit: cover;
+    opacity: 0.04;
+    pointer-events: none;
+  }
+
+  &__column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &--detailed {
+      flex: 0 1 530px;
+      gap: 25px;
+      border-right: 1px solid color(ink, line);
+    }
+
+    &--icons {
+      flex: 0 1 370px;
+      gap: 30px;
+      padding-top: 2px;
+    }
+  }
+
+  &__heading {
+    font-family: $font-urbane;
+    font-weight: $font-300;
+    font-size: rem(10);
+    line-height: normal;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: color(ink, muted);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__column--detailed &__list {
+    gap: 25px;
+  }
+
+  &__column--icons &__list {
+    gap: 30px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    color: color(ink);
+
+    &:hover {
+      color: color(ink);
+
+      .c-mega-menu__link-title {
+        color: color(teal);
+      }
+
+      .c-mega-menu__arrow .c-icon {
+        transform: translate(2px, -2px);
+      }
+    }
+  }
+
+  &__column--detailed &__link {
+    padding-right: 50px;
+  }
+
+  &__link-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  &__link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 15px;
+    width: 15px;
+
+    img {
+      width: 15px;
+      height: auto;
+      max-height: 19px;
+      object-fit: contain;
+    }
+  }
+
+  &__link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 390px;
+  }
+
+  &__link-title {
+    font-family: $font-urbane;
+    font-weight: $font-500;
+    font-size: rem(14);
+    line-height: normal;
+    color: color(ink);
+    transition: color .2s ease;
+  }
+
+  &__link-desc {
+    font-family: $font-urbane;
+    font-weight: $font-300;
+    font-size: rem(12);
+    line-height: 1.4;
+    color: color(ink, muted);
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    color: color(teal);
+
+    .c-icon {
+      transition: transform .2s ease;
+    }
+  }
+
+  // Feature card
+  &__feature {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    flex: 1 1 0;
+    min-width: 260px;
+    padding: 25px;
+    background-color: rgba(39, 39, 39, 0.05);
+    border-radius: 20px;
+  }
+
+  &__media {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  // Zoomed in on the image's subject, as framed in the design
+  &__media-img {
+    position: absolute;
+    top: -12.6%;
+    left: -43.19%;
+    width: 158.71%;
+    max-width: none;
+    height: 153.5%;
+    object-fit: cover;
+    transition: transform .4s ease;
+  }
+
+  // A video's image is a button that opens the pop-up player
+  button.c-mega-menu__media {
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid color(teal);
+      outline-offset: 3px;
+    }
+  }
+
+  a.c-mega-menu__media:hover &__media-img,
+  button.c-mega-menu__media:hover &__media-img {
+    transform: scale(1.03);
+  }
+
+  &__play {
+    position: relative;
+    transition: transform .2s ease;
+  }
+
+  button.c-mega-menu__media:hover &__play {
+    transform: scale(1.08);
+  }
+
+  &__caption {
+    position: absolute;
+    left: 18px;
+    bottom: 17px;
+    font-family: $font-urbane;
+    font-weight: $font-300;
+    font-size: rem(10);
+    line-height: normal;
+    letter-spacing: 0.05em;
+    color: color(white);
+  }
+
+  &__feature-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  &__feature-title {
+    font-family: $font-urbane;
+    font-weight: $font-500;
+    font-size: rem(18);
+    line-height: 1.25;
+    color: color(ink);
+
+    .u-accent {
+      font-weight: $font-600;
+    }
+  }
+
+  &__feature-text {
+    font-family: $font-urbane;
+    font-weight: $font-300;
+    font-size: rem(12);
+    line-height: 1.5;
+    color: color(ink, muted);
+  }
+
+  // Bottom bar
+  &__bar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 50px;
+    background-image: linear-gradient(92.39deg, color(teal, deep) 0%, color(teal) 100%);
+  }
+
+  &__bar-label {
+    font-family: $font-urbane;
+    font-weight: $font-300;
+    font-size: rem(10);
+    line-height: normal;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: color(mint);
+    white-space: nowrap;
+  }
+
+  &__bar-links {
+    display: flex;
+    align-items: center;
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+
+    li + li {
+      margin-left: 25px;
+      padding-left: 25px;
+      border-left: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &__bar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: $font-urbane;
+    font-weight: $font-500;
+    font-size: rem(14);
+    line-height: 19px;
+    color: color(white);
+    white-space: nowrap;
+
+    .c-icon {
+      transition: transform .2s ease;
+    }
+
+    &:hover {
+      color: color(mint);
+
+      .c-icon {
+        transform: translate(2px, -2px);
+      }
+    }
+  }
+}
+
+// Desktop: full-width panel under the header bar
+@media (min-width: $lg) {
+  .c-mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+  }
+
+  .c-site-header__item.is-open > .c-mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity .2s ease, transform .2s ease, visibility 0s;
+  }
+}
+
+@media (min-width: $lg) and (max-width: 1279px) {
+  .c-mega-menu {
+    &__main {
+      gap: 30px;
+      padding: 30px;
+    }
+
+    &__column--detailed &__link {
+      padding-right: 30px;
+    }
+
+    &__feature {
+      min-width: 240px;
+    }
+
+    &__bar {
+      padding: 20px 30px;
+    }
+  }
+}
+
+// Tablet & mobile: accordion inside the menu panel
+@media (max-width: $lg - 1px) {
+  .c-mega-menu {
+    display: none;
+    padding-bottom: 24px;
+
+    &__main {
+      flex-direction: column;
+      gap: 32px;
+      padding: 0;
+      overflow: visible;
+    }
+
+    &__bg {
+      display: none;
+    }
+
+    &__column {
+      &--detailed,
+      &--icons {
+        flex: none;
+        width: 100%;
+        gap: 20px;
+        padding-top: 0;
+        border-right: 0;
+      }
+    }
+
+    &__column--detailed &__list,
+    &__column--icons &__list {
+      gap: 20px;
+    }
+
+    &__column--detailed &__link {
+      padding-right: 0;
+    }
+
+    &__feature {
+      width: 100%;
+      min-width: 0;
+      padding: 20px;
+    }
+
+    &__media {
+      height: 180px;
+    }
+
+    &__bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      margin-top: 24px;
+      padding: 18px 20px;
+      border-radius: 12px;
+    }
+
+    &__bar-links {
+      flex-wrap: wrap;
+      gap: 12px 24px;
+
+      li + li {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+      }
+    }
+  }
+
+  .c-site-header__item.is-open > .c-mega-menu {
+    display: block;
+  }
+}

@@ -1,0 +1,274 @@
+// Insights block (scrolls sideways via assets/js/blocks/carousel.js)
+.b-insights {
+  margin: 110px 0;
+  overflow: hidden;
+  background-color: color(grey);
+
+  &__inner {
+    @include block-width(1240px);
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 90px 0;
+  }
+
+  &__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  // Runs off the right edge of the window; the padding lets the last card scroll fully in.
+  // The vertical padding keeps focus outlines from being clipped.
+  &__track {
+    display: flex;
+    gap: 30px;
+    margin: -15px calc((100% - 100vw) / 2) -15px 0;
+    padding: 15px calc((100vw - 100%) / 2) 15px 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    list-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__card {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: flex-end;
+    flex: 0 0 540px;
+    height: 295px;
+    margin: 0;
+    padding: 15px;
+    overflow: hidden;
+    border-radius: 20px;
+    list-style: none;
+    color: color(white);
+    scroll-snap-align: start;
+
+    &:focus-within {
+      outline: 2px solid color(teal);
+      outline-offset: 3px;
+    }
+
+    &:hover {
+      .b-insights__image {
+        transform: scale(1.04);
+      }
+
+      .b-insights__link .c-icon {
+        transform: translate(2px, -2px);
+      }
+    }
+
+    &--1 {
+      background-color: color(teal);
+
+      .b-insights__pattern {
+        left: 7.39%;
+        opacity: 0.08;
+      }
+    }
+
+    &--2 {
+      background-color: color(teal, deep);
+
+      .b-insights__pattern {
+        left: 18.43%;
+        opacity: 0.04;
+      }
+    }
+
+    &--3 {
+      background-color: color(mint);
+      color: color(ink);
+
+      .b-insights__pattern {
+        left: 13.53%;
+        opacity: 0.17;
+      }
+    }
+  }
+
+  &__pattern {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: auto;
+    max-width: none;
+    height: 100%;
+    aspect-ratio: 1;
+    pointer-events: none;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    flex: 0 0 231px;
+    padding: 10px;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 46px;
+    padding-top: 20px;
+  }
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    height: 26px;
+    padding: 0 11px;
+    border-radius: 99px;
+    background-color: #F0F4F4;
+    font-family: $font-gravita;
+    font-weight: $font-500;
+    font-size: rem(12);
+    line-height: normal;
+    letter-spacing: 0.03em;
+    color: color(teal);
+  }
+
+  &__time {
+    font-family: $font-gravita;
+    font-weight: $font-300;
+    font-size: rem(12);
+    line-height: normal;
+    letter-spacing: 0.03em;
+    color: inherit;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $font-gravita;
+    font-weight: $font-500;
+    font-size: rem(20);
+    line-height: 30px;
+    color: inherit;
+    transition: none;
+  }
+
+  // Covers the card, so the whole card is clickable
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: $font-gravita;
+    font-weight: $font-500;
+    font-size: rem(12);
+    line-height: normal;
+    letter-spacing: 0.05em;
+    color: inherit;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    &:hover,
+    &:focus {
+      color: inherit;
+      outline: none;
+    }
+
+    .c-icon {
+      transition: transform .2s ease;
+    }
+  }
+
+  &__media {
+    position: relative;
+    align-self: stretch;
+    flex: 1;
+    overflow: hidden;
+    border-radius: 15px;
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease;
+  }
+
+  &__arrows {
+    justify-content: flex-end;
+
+    .c-arrows__btn:not(:disabled) {
+      border-color: color(ink);
+      color: color(ink);
+
+      &:hover {
+        background-color: color(ink);
+        color: color(white);
+      }
+    }
+  }
+
+  &__empty {
+    margin: 0;
+    font-family: $font-gravita;
+    font-size: rem(14);
+    color: color(ink, soft);
+  }
+}
+
+@media (max-width: $md - 1px) {
+  .b-insights {
+    margin: 100px 0;
+  }
+}
+
+@media (max-width: $sm - 1px) {
+  .b-insights {
+    margin: 64px 0;
+
+    &__inner {
+      gap: 40px;
+      padding: 64px 0;
+    }
+
+    &__track {
+      gap: 15px;
+    }
+
+    // Image above the text
+    &__card {
+      flex-direction: column-reverse;
+      align-items: stretch;
+      flex-basis: min(340px, 85vw);
+      height: auto;
+    }
+
+    &__body {
+      flex: none;
+    }
+
+    &__media {
+      flex: none;
+      height: 180px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .b-insights__image {
+    transition: none;
+  }
+}

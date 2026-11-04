@@ -1,0 +1,442 @@
+// Site header
+.c-site-header {
+  position: sticky;
+  top: var(--wp-admin--admin-bar--height, 0px);
+  z-index: 100;
+  background-color: color(white);
+  border-bottom: 1px solid color(ink, line);
+  font-family: $font-gravita;
+  color: color(ink);
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin: 0;
+    list-style: none;
+    font-size: inherit;
+    line-height: normal;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible {
+    outline: 2px solid color(teal);
+    outline-offset: 2px;
+  }
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    height: 88px;
+    padding: 0 50px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    font-weight: $font-500;
+    font-size: rem(20);
+    color: color(ink);
+
+    img {
+      width: auto;
+      height: 40px;
+      max-width: 180px;
+    }
+  }
+
+  &__link {
+    font-family: $font-gravita;
+    font-weight: $font-500;
+    font-size: rem(16);
+    line-height: normal;
+    color: color(ink);
+    white-space: nowrap;
+    transition: color .2s ease;
+  }
+
+  a.c-site-header__link:hover {
+    color: color(teal);
+  }
+
+  &__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    color: color(ink);
+
+    .c-icon--chevron {
+      transition: transform .2s ease;
+    }
+  }
+
+  .c-icon--chevron {
+    color: color(teal);
+  }
+
+  &__item.is-open &__toggle .c-icon--chevron,
+  &__region.is-open .c-icon--chevron {
+    transform: rotate(180deg);
+  }
+
+  // Search
+  &__search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 48px;
+    padding: 0 18px;
+    border: 1px solid color(ink, line);
+    border-radius: 99px;
+    color: color(ink, muted);
+    transition: border-color .2s ease;
+
+    &:focus-within {
+      border-color: color(teal);
+    }
+  }
+
+  &__search-input {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    font-family: $font-gravita;
+    font-weight: $font-300;
+    font-size: rem(12);
+    letter-spacing: 0.05em;
+    color: color(ink);
+
+    &::placeholder {
+      color: color(ink, muted);
+      opacity: 1;
+    }
+
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+
+    &:focus-visible {
+      outline: none !important;
+    }
+  }
+
+  // Region selector
+  &__region {
+    position: relative;
+  }
+
+  &__region-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 2px;
+    font-family: $font-gravita;
+    font-weight: $font-500;
+    font-size: rem(14);
+    line-height: normal;
+    color: color(ink);
+    cursor: pointer;
+
+    // Override the global span typography so the label keeps the toggle's font
+    span {
+      font: inherit;
+      letter-spacing: inherit;
+      color: inherit;
+    }
+  }
+
+  // Language list – links rendered by GTranslate's [gt-link] shortcode
+  &__region-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px;
+
+    a {
+      display: block;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-family: $font-gravita;
+      font-weight: $font-500 !important;
+      font-size: rem(14);
+      line-height: normal;
+      color: color(ink);
+      white-space: nowrap;
+
+      &:hover {
+        background-color: color(grey);
+        color: color(teal);
+      }
+
+      &.gt-current-lang {
+        background-color: color(grey);
+        color: color(teal);
+      }
+    }
+  }
+
+  // Mobile menu toggle
+  &__menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+    margin-right: -10px;
+    color: color(ink);
+    cursor: pointer;
+  }
+
+  &__close-icon {
+    display: none !important;
+  }
+
+  &.is-menu-open &__menu-icon {
+    display: none !important;
+  }
+
+  &.is-menu-open &__close-icon {
+    display: block !important;
+  }
+}
+
+// Desktop
+@media (min-width: $lg) {
+  .c-site-header {
+    &__panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      flex: 1;
+      min-width: 0;
+      height: 100%;
+      margin-left: 40px;
+    }
+
+    &__nav,
+    &__menu {
+      height: 100%;
+    }
+
+    &__menu {
+      display: flex;
+      gap: 40px;
+    }
+
+    &__item {
+      display: flex;
+      height: 100%;
+    }
+
+    &__item-row {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      height: 100%;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background-color: color(mint);
+        transform: scaleX(0);
+        transition: transform .2s ease;
+      }
+    }
+
+    &__item.is-open &__item-row::after {
+      transform: scaleX(1);
+    }
+
+    &__actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 20px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    &__search {
+      flex: 0 1 420px;
+      min-width: 160px;
+    }
+
+    &__button {
+      flex-shrink: 0;
+    }
+
+    &__region-list {
+      display: grid;
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      padding: 8px;
+      background-color: color(white);
+      border: 1px solid color(ink, line);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      grid-template-columns: repeat(3, max-content);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+    }
+
+    &__region.is-open &__region-list {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      transition: opacity .2s ease, transform .2s ease, visibility 0s;
+    }
+  }
+}
+
+@media (min-width: $lg) and (max-width: 1279px) {
+  .c-site-header {
+    &__bar {
+      padding: 0 30px;
+    }
+
+    &__panel {
+      gap: 30px;
+      margin-left: 30px;
+    }
+
+    &__menu {
+      gap: 28px;
+    }
+
+    &__actions {
+      gap: 16px;
+    }
+  }
+}
+
+// Tablet & mobile
+@media (max-width: $lg - 1px) {
+  .c-site-header {
+    &__bar {
+      height: 72px;
+      padding: 0 25px;
+    }
+
+    &__logo img {
+      height: 32px;
+    }
+
+    &__menu-toggle {
+      display: flex;
+    }
+
+    &__panel {
+      position: fixed;
+      top: var(--site-header-height, 73px);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 0 25px 40px;
+      background-color: color(white);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+    }
+
+    &.is-menu-open &__panel {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      transition: opacity .2s ease, transform .2s ease, visibility 0s;
+    }
+
+    &__item {
+      border-bottom: 1px solid color(ink, line);
+    }
+
+    &__item-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+    }
+
+    &__link {
+      font-size: rem(18);
+    }
+
+    &__toggle {
+      justify-content: flex-end;
+      min-width: 44px;
+      min-height: 44px;
+
+      &:only-child {
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .c-icon--chevron {
+        width: 12px;
+        height: 8px;
+      }
+    }
+
+    &__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+      padding-top: 24px;
+    }
+
+    &__search-input {
+      font-size: 16px; // Prevents iOS zoom on focus
+    }
+
+    &__region-toggle {
+      font-size: rem(16);
+    }
+
+    &__region-list {
+      display: none;
+      padding-top: 8px;
+    }
+
+    &__region.is-open &__region-list {
+      display: grid;
+    }
+  }
+
+  html.has-menu-open {
+    overflow: hidden;
+  }
+}
+
+// The admin bar scrolls away on small screens, so the header sticks to the very top there
+@media (max-width: 600px) {
+  .admin-bar .c-site-header {
+    top: 0;
+  }
+}
