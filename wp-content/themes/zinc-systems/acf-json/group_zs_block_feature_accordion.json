@@ -61,6 +61,54 @@
             "new_lines": ""
         },
         {
+            "key": "field_zs_fa_show_text",
+            "label": "Show intro text",
+            "name": "show_text",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Off hides the intro text (it's kept) and puts the heading back above the accordion.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_zs_fa_text",
+            "label": "Text",
+            "name": "text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Optional. With text, the heading sits in a row above the image and accordion, the text beside it.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zs_fa_show_text",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_zs_fa_image",
             "label": "Image",
             "name": "image",
@@ -86,6 +134,141 @@
             "preview_size": "medium"
         },
         {
+            "key": "field_zs_fa_show_icons",
+            "label": "Show icons",
+            "name": "show_icons",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Shows each item's icon next to its title.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_zs_fa_icon_cursor",
+            "label": "Use icon as cursor",
+            "name": "icon_cursor",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Anywhere over an item (its title, text and button), the cursor becomes that item's icon. Works with the icons shown or hidden.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_zs_fa_background",
+            "label": "Background",
+            "name": "background",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Teal gradient switches the text to white.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "White",
+                "grey": "Grey",
+                "teal": "Teal gradient"
+            },
+            "default_value": "white",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_zs_fa_shape",
+            "label": "Background shape",
+            "name": "show_shape",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "A faint quarter-circle and circle in the bottom right.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_zs_fa_show_includes",
+            "label": "Show includes",
+            "name": "show_includes",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Shows each item's Includes line, under its text.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_zs_fa_includes_label",
+            "label": "Includes label",
+            "name": "includes_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_zs_fa_show_includes",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Includes",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_zs_fa_items",
             "label": "Items",
             "name": "items",
@@ -107,6 +290,32 @@
             "button_label": "Add item",
             "rows_per_page": 20,
             "sub_fields": [
+                {
+                    "key": "field_zs_fa_item_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Shown before the title, up to 27 \u00d7 27. SVG or PNG; choose a version that shows up on this section's background.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "svg,png,webp",
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_zs_fa_items"
+                },
                 {
                     "key": "field_zs_fa_item_title",
                     "label": "Title",
@@ -167,6 +376,52 @@
                     "parent_repeater": "field_zs_fa_items"
                 },
                 {
+                    "key": "field_zs_fa_item_include_items",
+                    "label": "Includes",
+                    "name": "include_items",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "One row for each thing this capability includes; shown on one line, separated by dots. Leave empty to leave it out.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add item",
+                    "rows_per_page": 20,
+                    "parent_repeater": "field_zs_fa_items",
+                    "sub_fields": [
+                        {
+                            "key": "field_zs_fa_item_include_label",
+                            "label": "Item",
+                            "name": "label",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "e.g. Daily Occurrence Book",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_zs_fa_item_include_items"
+                        }
+                    ]
+                },
+                {
                     "key": "field_zs_fa_item_image",
                     "label": "Image (optional)",
                     "name": "image",
@@ -213,5 +468,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1793804002
+    "modified": 1793972093
 }

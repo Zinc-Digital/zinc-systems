@@ -101,7 +101,8 @@ $bar     = !empty($menu['show_bottom_bar']) ? $menu['bottom_bar'] : null;
         <?php endif; ?>
 
         <?php if ($feature_link) : ?>
-          <a class="c-text-link"<?php echo zinc_link_attrs($feature_link); ?>><?php echo esc_html($feature_link['title']); ?><?php echo zinc_icon('arrow'); ?></a>
+          <?php // With a video, the link (e.g. "Watch the tour") opens it too; its URL is the fallback without JS ?>
+          <a class="c-text-link"<?php echo zinc_link_attrs($feature_link); ?><?php if ($video_attrs) echo ' aria-haspopup="dialog" data-video-title="' . esc_attr($feature['title']) . '"' . $video_attrs; ?>><?php echo esc_html($feature_link['title']); ?><?php echo zinc_icon('arrow'); ?></a>
         <?php endif; ?>
       </div>
     <?php endif; ?>

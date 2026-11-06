@@ -473,7 +473,7 @@
                                     "name": "video_type",
                                     "aria-label": "",
                                     "type": "radio",
-                                    "instructions": "Plays in a pop-up when the image is clicked (the play button shows automatically).",
+                                    "instructions": "Plays in a pop-up when the image or the text link (e.g. \"Watch the tour\") is clicked; the play button shows automatically.",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -600,7 +600,7 @@
                                     "name": "link",
                                     "aria-label": "",
                                     "type": "link",
-                                    "instructions": "Used for the text link, e.g. \"Watch the tour\", and for the image when there's no video.",
+                                    "instructions": "The text link, e.g. \"Watch the tour\". With a video set, it plays the video; otherwise it goes to this URL, as does the image.",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -872,5 +872,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793805271
+    "modified": 1793806442
 }

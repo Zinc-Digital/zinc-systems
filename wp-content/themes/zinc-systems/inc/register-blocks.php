@@ -72,12 +72,11 @@ function register_acf_block_types() {
 
 // Content block assets: its scripts (shared between blocks), and the block styles in the editor
 function zinc_block_assets($scripts) {
-	$theme_version = wp_get_theme()->get('Version');
 	foreach (array_filter((array) $scripts) as $script) {
-		wp_enqueue_script('zinc-block-' . $script, get_template_directory_uri() . '/assets/js/blocks/' . $script . '.js', array(), $theme_version, true);
+		wp_enqueue_script('zinc-block-' . $script, get_template_directory_uri() . '/assets/js/blocks/' . $script . '.js', array(), zinc_asset_version('assets/js/blocks/' . $script . '.js'), true);
 	}
 	if (is_admin()) {
-		wp_enqueue_style('blocks-editor', get_template_directory_uri() . '/assets/css/blocks-editor.css', array(), $theme_version);
+		wp_enqueue_style('blocks-editor', get_template_directory_uri() . '/assets/css/blocks-editor.css', array(), zinc_asset_version('assets/css/blocks-editor.css'));
 	}
 }
 
@@ -141,12 +140,11 @@ function zinc_hero_dashboard_data($fields) {
 
 // Hero block scripts (and its styles in the editor, where main.css isn't loaded)
 function zinc_hero_block_assets() {
-	$theme_version = wp_get_theme()->get('Version');
 	wp_enqueue_style('roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap', array(), null);
-	wp_enqueue_script('hero-block', get_template_directory_uri() . '/assets/js/blocks/hero.js', array(), $theme_version, true);
+	wp_enqueue_script('hero-block', get_template_directory_uri() . '/assets/js/blocks/hero.js', array(), zinc_asset_version('assets/js/blocks/hero.js'), true);
 
 	if (is_admin()) {
-		wp_enqueue_style('blocks-editor', get_template_directory_uri() . '/assets/css/blocks-editor.css', array(), $theme_version);
+		wp_enqueue_style('blocks-editor', get_template_directory_uri() . '/assets/css/blocks-editor.css', array(), zinc_asset_version('assets/css/blocks-editor.css'));
 	}
 }
 
