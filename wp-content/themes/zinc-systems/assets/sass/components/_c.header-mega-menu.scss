@@ -75,7 +75,8 @@
     &:hover {
       color: color(ink);
 
-      .c-mega-menu__link-title {
+      .c-mega-menu__link-title,
+      .c-mega-menu__link-icon {
         color: color(teal);
       }
 
@@ -96,18 +97,25 @@
     min-width: 0;
   }
 
+  // The uploaded icon, inline and filled with the text colour: faint ink at rest (as designed),
+  // solid teal with the title on hover
   &__link-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     flex: 0 0 15px;
     width: 15px;
+    height: 19px;
+    color: rgba(39, 39, 39, 0.25);
+    transition: color .2s ease;
 
+    svg,
     img {
-      width: 15px;
-      height: auto;
+      display: block;
+      max-width: 15px;
       max-height: 19px;
-      object-fit: contain;
+      width: auto;
+      height: auto;
     }
   }
 

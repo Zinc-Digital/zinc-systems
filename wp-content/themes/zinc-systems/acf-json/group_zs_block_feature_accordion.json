@@ -143,32 +143,12 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
             "message": "",
             "default_value": 1,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_zs_fa_icon_cursor",
-            "label": "Use icon as cursor",
-            "name": "icon_cursor",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "Anywhere over an item (its title, text and button), the cursor becomes that item's icon. Works with the icons shown or hidden.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
@@ -296,7 +276,7 @@
                     "name": "icon",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "Shown before the title, up to 27 \u00d7 27. SVG or PNG; choose a version that shows up on this section's background.",
+                    "instructions": "Shown before the title, up to 27 × 27. SVG or PNG; choose a version that shows up on this section's background.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -455,7 +435,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf/feature-accordion"
+                "value": "acf\/feature-accordion"
             }
         ]
     ],
@@ -468,5 +448,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1793972093
+    "modified": 1793979081
 }

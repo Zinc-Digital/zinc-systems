@@ -73,8 +73,8 @@
   }
 }
 
-// No page scroll behind the player
-.has-video-modal {
+// No page scroll behind the player (on body, so the sticky header stays put; see _c.header.scss)
+.has-video-modal body {
   overflow: hidden;
 }
 

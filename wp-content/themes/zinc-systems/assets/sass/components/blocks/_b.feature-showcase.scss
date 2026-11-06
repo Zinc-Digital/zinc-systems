@@ -154,6 +154,7 @@
     line-height: normal;
     color: color(teal);
     white-space: nowrap;
+    font-variant-numeric: tabular-nums; // steady width while it counts up
   }
 
   &__stat-label {

@@ -32,7 +32,8 @@ $bar     = !empty($menu['show_bottom_bar']) ? $menu['bottom_bar'] : null;
                 <a class="c-mega-menu__link"<?php echo zinc_link_attrs($item['link']); ?>>
                   <span class="c-mega-menu__link-main">
                     <?php if (!empty($item['icon']['url'])) : ?>
-                      <span class="c-mega-menu__link-icon"><?php echo zinc_image($item['icon'], '', ''); ?></span>
+                      <?php // Inline, in the text colour, so it turns teal with the title on hover ?>
+                      <span class="c-mega-menu__link-icon" aria-hidden="true"><?php echo zinc_inline_icon($item['icon']); ?></span>
                     <?php endif; ?>
                     <span class="c-mega-menu__link-text">
                       <span class="c-mega-menu__link-title"><?php echo esc_html($item['title'] ?: $item['link']['title']); ?></span>

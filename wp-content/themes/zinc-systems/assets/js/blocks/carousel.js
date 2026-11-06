@@ -23,6 +23,8 @@
 			});
 			prev.disabled = current === 0;
 			next.disabled = current === slides.length - 1;
+			// e.g. counts up the new slide's stats (assets/js/blocks/reveal.js)
+			block.dispatchEvent(new CustomEvent('zinc:slide-change', { bubbles: true, detail: { index: current } }));
 		}
 
 		prev.addEventListener('click', () => go(current - 1));

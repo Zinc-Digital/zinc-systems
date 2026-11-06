@@ -51,10 +51,13 @@ $multiple = count($slides) > 1;
 
             <div class="b-case-studies__results">
               <?php if (!empty($slide['stats'])) : ?>
-                <ul class="b-case-studies__stats">
+                <ul class="b-case-studies__stats" data-reveal data-reveal-repeat data-reveal-anchor>
                   <?php foreach ($slide['stats'] as $stat) : ?>
                     <li class="b-case-studies__stat">
-                      <span class="b-case-studies__stat-value"><?php echo esc_html($stat['value']); ?></span>
+                      <span class="b-case-studies__stat-value">
+                        <span aria-hidden="true" data-count-to="<?php echo esc_attr($stat['value']); ?>"><?php echo esc_html($stat['value']); ?></span>
+                        <span class="u-sr-only"><?php echo esc_html($stat['value']); ?></span>
+                      </span>
                       <span class="b-case-studies__stat-label"><?php echo esc_html($stat['label']); ?></span>
                     </li>
                   <?php endforeach; ?>

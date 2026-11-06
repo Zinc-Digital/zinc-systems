@@ -86,7 +86,7 @@ if (!empty($block['className'])) {
             <?php foreach ($chips as $chip) :
               $style = sprintf('left:%spx;top:%spx;--bob:%ss;--bd:%ss', (float) $chip['x'], (float) $chip['y'], (float) ($chip['bob'] ?: 6), (float) $chip['delay']);
             ?>
-              <li class="b-hero__chip b-hero__chip--<?php echo esc_attr($chip['size'] ?: 'lg'); ?>" style="<?php echo esc_attr($style); ?>" data-depth="<?php echo esc_attr((float) ($chip['depth'] ?: 1)); ?>"<?php if (!empty($chip['faint'])) echo ' data-faint'; ?>>
+              <li class="b-hero__chip" style="<?php echo esc_attr($style); ?>" data-depth="<?php echo esc_attr((float) ($chip['depth'] ?: 1)); ?>"<?php if (!empty($chip['faint'])) echo ' data-faint'; ?>>
                 <span class="b-hero__chip-in">
                   <?php if (!empty($chip['icon']['url'])) echo zinc_image($chip['icon'], '', '', false); ?>
                   <?php echo esc_html($chip['label']); ?>

@@ -83,6 +83,28 @@ function zinc_video_embed_url($url) {
 }
 
 // <img> tag for an ACF image array
+/**
+ * A single-colour uploaded SVG icon, inline and filled with currentColor so CSS can colour it (e.g. on
+ * hover). Its own fills, opacity and ids are dropped. Anything that isn't an SVG falls back to an <img>.
+ */
+function zinc_inline_icon($image, $class = '') {
+	if (empty($image['url'])) {
+		return '';
+	}
+	$file = !empty($image['ID']) ? get_attached_file($image['ID']) : '';
+	$svg  = ($file && preg_match('/\.svg$/i', $file) && is_readable($file)) ? (string) file_get_contents($file) : '';
+	if (!preg_match('/<svg\b.*<\/svg>/is', $svg, $m)) {
+		return zinc_image($image, $class, '', false);
+	}
+
+	$svg = preg_replace('/<(script|style|foreignObject)\b.*?<\/\1>/is', '', $m[0]);
+	$svg = preg_replace('/\s(on\w+|id|opacity|fill-opacity|stroke-opacity)="[^"]*"/i', '', $svg);
+	$svg = preg_replace('/\sfill="(?!none)[^"]*"/i', ' fill="currentColor"', $svg);
+	$svg = preg_replace('/\sstroke="(?!none)[^"]*"/i', ' stroke="currentColor"', $svg);
+	$attrs = ' aria-hidden="true" focusable="false"' . ($class ? ' class="' . esc_attr($class) . '"' : '');
+	return preg_replace('/<svg\b/i', '<svg' . $attrs, $svg, 1);
+}
+
 function zinc_image($image, $class = '', $alt = null, $lazy = true) {
 	if (empty($image['url'])) {
 		return '';

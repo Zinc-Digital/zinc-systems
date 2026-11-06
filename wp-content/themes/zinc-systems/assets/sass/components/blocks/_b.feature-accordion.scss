@@ -86,15 +86,6 @@
     }
   }
 
-  // "Use icon as cursor": anywhere over an item (its title, text and button) the cursor is that item's
-  // icon, set inline as --icon-cursor, or the pointer if it can't load
-  & &__item.has-icon-cursor {
-    &,
-    * {
-      cursor: var(--icon-cursor), pointer;
-    }
-  }
-
   &__icon {
     display: flex;
     flex-shrink: 0;

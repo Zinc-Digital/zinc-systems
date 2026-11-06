@@ -76,7 +76,14 @@
 	});
 
 	// Mobile menu
+	// The mobile panel opens from the header's bottom edge as it is on screen, which is lower than
+	// its height when the admin bar (logged in) or anything else sits above it
+	function setPanelTop() {
+		document.documentElement.style.setProperty('--menu-panel-top', Math.max(0, header.getBoundingClientRect().bottom) + 'px');
+	}
+
 	function setMenuOpen(open) {
+		if (open) setPanelTop();
 		header.classList.toggle('is-menu-open', open);
 		document.documentElement.classList.toggle('has-menu-open', open);
 		if (menuToggle) {
@@ -150,7 +157,10 @@
 		document.documentElement.style.setProperty('--site-header-height', header.offsetHeight + 'px');
 	}
 	setHeaderHeight();
-	window.addEventListener('resize', setHeaderHeight);
+	window.addEventListener('resize', function () {
+		setHeaderHeight();
+		if (header.classList.contains('is-menu-open')) setPanelTop();
+	});
 
 	// Reset state when switching between mobile and desktop layouts
 	desktop.addEventListener('change', function () {

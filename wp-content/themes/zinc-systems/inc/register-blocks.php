@@ -47,7 +47,7 @@ function register_acf_block_types() {
 		'feature-accordion'	=> array(__('Feature accordion'), __('Image beside a heading and an accordion of features'), 'list-view', 'feature-accordion'),
 		'feature-showcase'	=> array(__('Feature showcase'), __('Centred intro above stacking image cards with buttons and a chart overlay'), 'format-image', array('stack', 'reveal')),
 		'stats'				=> array(__('Stats'), __('Teal band with a heading and large counting numbers'), 'chart-bar', 'reveal'),
-		'case-studies'		=> array(__('Case studies'), __('Quote, results and image, with arrows between slides'), 'format-quote', 'carousel'),
+		'case-studies'		=> array(__('Case studies'), __('Quote, results and image, with arrows between slides'), 'format-quote', array('carousel', 'reveal')),
 		'insights'			=> array(__('Insights'), __('Scrolling cards for the latest or chosen posts'), 'admin-post', 'carousel'),
 		'link-cards'		=> array(__('Link cards'), __('Heading above a row of linked cards'), 'grid-view', ''),
 	);

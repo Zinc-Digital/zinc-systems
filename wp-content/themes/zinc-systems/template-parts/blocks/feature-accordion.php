@@ -4,7 +4,7 @@
  *
  * Square image beside a heading and an accordion; one item is open at a time, and an item with
  * its own image swaps it in (assets/js/blocks/feature-accordion.js). Each title can show its item's
- * icon, and/or use the icon as the cursor anywhere over that item. White, grey or teal background, with an
+ * icon. White, grey or teal background, with an
  * optional faint shape; with intro text the heading sits in a row above both columns. Items can list
  * what they include, under their text (switchable for the whole block).
  *
@@ -19,7 +19,6 @@ $items = get_field('items') ?: array();
 $uid   = 'fa-' . $block['id'];
 
 $show_icons  = get_field('show_icons') !== false; // on unless switched off (blocks saved before the option have none)
-$icon_cursor = (bool) get_field('icon_cursor');
 $background  = in_array(get_field('background'), array('grey', 'teal'), true) ? get_field('background') : 'white';
 $show_shape  = (bool) get_field('show_shape');
 $show_incl   = get_field('show_includes') !== false; // on unless switched off
@@ -45,21 +44,6 @@ $head = array(
 	'id'    => $uid . '-title',
 	'light' => $background === 'teal',
 );
-
-// The icon as a CSS cursor, its hotspot in the middle, falling back to the pointer.
-// WordPress doesn't record an SVG's size, so that's read from the file.
-$cursor_style = function ($icon) {
-	$w = !empty($icon['width']) && $icon['width'] > 1 ? (int) $icon['width'] : 0;
-	$h = !empty($icon['height']) && $icon['height'] > 1 ? (int) $icon['height'] : 0;
-	if ((!$w || !$h) && !empty($icon['ID']) && ($file = get_attached_file($icon['ID'])) && preg_match('/\.svg$/i', $file)) {
-		$svg = (string) file_get_contents($file, false, null, 0, 2048);
-		if (preg_match('/<svg[^>]*\swidth="([\d.]+)/', $svg, $m)) $w = (int) $m[1];
-		if (preg_match('/<svg[^>]*\sheight="([\d.]+)/', $svg, $m)) $h = (int) $m[1];
-	}
-	$w = $w ?: 32;
-	$h = $h ?: 32;
-	return sprintf('--icon-cursor: url("%s") %d %d', esc_url($icon['url']), min(127, intdiv($w, 2)), min(127, intdiv($h, 2)));
-};
 ?>
 
 <section<?php echo zinc_block_attrs($block, $classes, $is_preview); ?> aria-labelledby="<?php echo esc_attr($uid); ?>-title" data-feature-accordion>
@@ -88,11 +72,10 @@ $cursor_style = function ($icon) {
       <?php if ($items) : ?>
         <div class="b-feature-accordion__items">
           <?php foreach ($items as $i => $item) :
-            $open       = $i === 0;
-            $has_icon   = !empty($item['icon']['url']);
-            $use_cursor = $icon_cursor && $has_icon;
+            $open     = $i === 0;
+            $has_icon = !empty($item['icon']['url']);
           ?>
-            <div class="b-feature-accordion__item<?php if ($open) echo ' is-open'; if ($use_cursor) echo ' has-icon-cursor'; ?>" data-item="<?php echo $i; ?>"<?php if ($use_cursor) echo ' style="' . esc_attr($cursor_style($item['icon'])) . '"'; ?>>
+            <div class="b-feature-accordion__item<?php if ($open) echo ' is-open'; ?>" data-item="<?php echo $i; ?>">
               <h3 class="b-feature-accordion__heading">
                 <button class="b-feature-accordion__toggle" type="button" id="<?php echo esc_attr($uid . '-toggle-' . $i); ?>" aria-expanded="<?php echo $open ? 'true' : 'false'; ?>" aria-controls="<?php echo esc_attr($uid . '-panel-' . $i); ?>">
                   <?php if ($show_icons && $has_icon) : ?>

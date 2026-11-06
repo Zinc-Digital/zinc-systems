@@ -40,7 +40,7 @@ $bar_colours = array('#00363C', '#087F8C', 'rgba(8, 127, 140, 0.5)', '#36F1CD', 
         $stats  = !empty($card['stats']) ? $card['stats'] : array();
         $groups = !empty($card['chart_groups']) ? $card['chart_groups'] : array();
       ?>
-        <article class="b-feature-showcase__card" style="--i: <?php echo $i; ?>" data-stack-card data-reveal>
+        <article class="b-feature-showcase__card" style="--i: <?php echo $i; ?>" data-stack-card data-reveal data-reveal-repeat>
           <?php if (!empty($card['image']['url'])) : ?>
             <div class="b-feature-showcase__bg" aria-hidden="true">
               <?php echo zinc_image($card['image'], 'b-feature-showcase__image', ''); ?>
@@ -71,12 +71,12 @@ $bar_colours = array('#00363C', '#087F8C', 'rgba(8, 127, 140, 0.5)', '#36F1CD', 
 
           <?php if (!empty($card['widget_show']) && ($stats || $groups)) : ?>
             <?php // An illustration of the product, so it's hidden from assistive technology ?>
-            <div class="b-feature-showcase__widget" aria-hidden="true">
+            <div class="b-feature-showcase__widget" aria-hidden="true" data-reveal-anchor>
               <?php if ($stats) : ?>
                 <div class="b-feature-showcase__stats">
                   <?php foreach ($stats as $stat) : ?>
                     <div class="b-feature-showcase__stat">
-                      <span class="b-feature-showcase__stat-value"><?php echo esc_html($stat['value']); ?></span>
+                      <span class="b-feature-showcase__stat-value" data-count-to="<?php echo esc_attr($stat['value']); ?>"><?php echo esc_html($stat['value']); ?></span>
                       <span class="b-feature-showcase__stat-label"><?php echo esc_html($stat['label']); ?></span>
                     </div>
                   <?php endforeach; ?>

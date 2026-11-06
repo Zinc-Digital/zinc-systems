@@ -4,9 +4,9 @@
 // Everything is laid out on the 1440 × 1370 design stage, scaled to the window (--s).
 (function () {
 	const STAGE_W = 1440, STAGE_H = 1370;
-	const TAIL = 110;                                     // = --tail: between the window's bottom and the logo strip
+	const GAP = 133;                                      // under the UI frame, down to the logo strip (Figma)
 	const CHIPS_X = 80, CHIPS_Y = 77;                     // chip layer on the stage
-	const UI = { x: 278, y: 609, w: 885, h: 591 };        // UI frame on the stage
+	const UI = { x: 278, y: 646, w: 885, h: 591 };        // UI frame on the stage
 	const DASH_W = 1240;                                  // dashboard's internal width
 
 	const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
@@ -193,7 +193,7 @@
 			return { dx: Math.cos(a) * 240, dy: Math.sin(a) * 60 };
 		});
 
-		let mode = '', scale = 1, viewH = 0, offset = 0;
+		let mode = '', scale = 1, viewH = 0, offset = 0, tail = 0, endScale = 1, endCenter = 0;
 		let p = 0, built = false, building = false, running = false, visible = true;
 		const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
 
@@ -243,6 +243,15 @@
 			// Visible stage height (the pin's tail is below it)
 			viewH = (window.innerHeight - offset) / scale;
 
+			// Where the UI frame ends: centred in the window, as large as fits (up to 108%) with room
+			// around it, and GAP above the logo strip. The pin runs on past the window (its tail) until
+			// the strip is GAP below the frame; on a tall window the frame sits lower instead.
+			endScale = Math.min(1.08, (viewH - 70) / UI.h);
+			const endH = UI.h * endScale, roomBelow = (viewH - endH) / 2;
+			tail = Math.max(0, GAP - roomBelow);
+			endCenter = viewH + tail - GAP - endH / 2;
+			hero.style.setProperty('--tail', tail.toFixed(1) + 'px');
+
 			const nextMode = isPreview || reducedMotion.matches ? 'static' : (mobile.matches ? 'mobile' : 'scroll');
 			hero.style.setProperty('--dash-s', nextMode === 'mobile' ? (ui.clientWidth / DASH_W).toFixed(5) : '');
 			chips.forEach((c) => { c.w = c.el.offsetWidth; c.h = c.el.offsetHeight; });
@@ -291,9 +300,7 @@
 
 			// 1. The UI frame rises to the middle of the screen and grows a little
 			const rise = ease(span(p, 0.18, 0.7));
-			// It ends centred in the window, as large as fits (up to 108%) with room around it
-			const endScale = Math.min(1.08, (viewH - 70) / UI.h);
-			const endCenter = viewH / 2;
+			// It ends where layout() worked out (endCenter, endScale)
 			// It starts smaller (84%), its top edge where it was, and grows as it rises
 			const UI_START = 0.84, restLift = (0.96 - UI_START) * UI.h / 2;
 			const uiDy = (endCenter - (UI.y + UI.h / 2)) * rise - restLift * (1 - rise);
@@ -301,8 +308,8 @@
 			ui.style.transform = 'translateY(' + uiDy.toFixed(1) + 'px) scale(' + uiScale.toFixed(4) + ')';
 			const uiCx = UI.x + UI.w / 2;
 			// The background rises with it: the shapes come up behind the frame, and the bottom of
-			// the window lands on 1370 − TAIL; the pin's tail runs on to 1370, the logo strip
-			bg.style.transform = 'translateY(' + (-Math.max(0, STAGE_H - TAIL - viewH) * rise).toFixed(1) + 'px)';
+			// the window lands on 1370 − tail; the pin's tail runs on to 1370, the logo strip
+			bg.style.transform = 'translateY(' + (-Math.max(0, STAGE_H - tail - viewH) * rise).toFixed(1) + 'px)';
 
 			// 2. The headline, body and buttons fade backwards (smaller, softer, gone)
 			const back = ease(span(p, 0.08, 0.45));

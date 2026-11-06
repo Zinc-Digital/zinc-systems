@@ -132,6 +132,13 @@
     // the web font sits its figures lower in the line than the design's; lift them to match
     position: relative;
     top: -0.188em;
+    font-variant-numeric: tabular-nums; // steady width while it counts up
+
+    span {
+      font: inherit;
+      letter-spacing: inherit;
+      color: inherit;
+    }
   }
 
   &__stat-label {
